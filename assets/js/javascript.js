@@ -55,6 +55,36 @@ $(document).ready(function() {
     var trainDest = childSnapshot.val().place;
     var trainStart = childSnapshot.val().strain;
     var trainFreq = childSnapshot.val().freq;
+
+    var firstConvert = moment(trainStart, "HH:mm");
+    console.log(firstConvert);
+    var currentTime = moment().format("HH:mm");
+    console.log("CURRENT TIME: " + currentTime);
+
+    var timeDifference = moment().diff(moment(firstConvert), "minutes");
+    console.log(trainStart);
+    var timeRemainder = timeDifference % trainFreq;
+    console.log(timeRemainder);
+
+    var minsTilTrain = trainFreq - timeRemainder;
+
+    var nextTrn = moment()
+      .add(minsTilTrain, "minutes")
+      .format("HH:mm");
+
+    $("#trainData>tbody").append(
+      "<tr><td>" +
+        trainName +
+        "</td><td>" +
+        trainDest +
+        "</td><td>" +
+        nextTrn +
+        "</td><td>" +
+        trainFreq +
+        "</td><td>" +
+        minsTilTrain +
+        "</tr></td>"
+    );
   });
 
   //   database.ref().on("child_added", function(snapshot) {
