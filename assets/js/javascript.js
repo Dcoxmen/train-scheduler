@@ -1,12 +1,12 @@
 // Initialize Firebase
 $(document).ready(function() {
   var config = {
-    apiKey: "AIzaSyBgUcIoo1YqvalGCRYgDpVqiPK-Hxldeu8",
+    apiKey: "API key goes here",
     authDomain: "logintest-f64e6.firebaseapp.com",
     databaseURL: "https://logintest-f64e6.firebaseio.com",
     projectId: "logintest-f64e6",
     storageBucket: "logintest-f64e6.appspot.com",
-    messagingSenderId: "1035191972409"
+    messagingSenderId: "12345"
   };
   firebase.initializeApp(config);
   var database = firebase.database();
